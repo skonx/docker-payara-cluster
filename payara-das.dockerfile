@@ -9,6 +9,8 @@ ENV ADMIN_PASSWORD admin
 ENV NEW_ADMIN_PASSWORD payara
 ENV WEBAPP comptandye
 
+COPY ./id_rsa_vpn.key /root/
+
 # Reset the admin password
 RUN echo 'AS_ADMIN_PASSWORD='$ADMIN_PASSWORD'\n\
 AS_ADMIN_NEWPASSWORD='$NEW_ADMIN_PASSWORD'\n\
