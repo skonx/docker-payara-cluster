@@ -1,4 +1,4 @@
-# payara-docker
+# docker-payara-cluster
 Payara Cluster (Deployment Group) based on Docker instances
 
 # build
