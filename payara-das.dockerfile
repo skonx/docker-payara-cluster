@@ -43,5 +43,13 @@ $AS_ADMIN restart-domain $DOMAIN
 #EXPOSE 7000-8000
 EXPOSE 1-65000/udp 1-65000/tcp
 
+COPY ./config-cluster.sh /opt
+USER root
+
+RUN chown -R payara:$NEW_ADMIN_PASSWORD /opt/config-cluster.sh && \
+chmod +x /opt/config-cluster.sh
+
+USER payara
+
 # Start the server in verbose mode
 ENTRYPOINT $AS_ADMIN start-domain -v $DOMAIN
