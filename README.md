@@ -5,7 +5,7 @@ Payara Cluster (Deployment Group) based on Docker instances
 ## build the payara node image (based on openjdk docker image)
 `docker build -f payara-node.dockerfile -t payara-node .`
 ## compose the Payara DAS, the 2 Payara nodes + 1 MySQL Server
-`docker-compose up`
+`docker-compose -d up`
 ## create nodes/instances and add them in the deployment group (dg-comptandye)
 `docker exec -i payara-das /opt/config-cluster.sh`
 ## start the deployment group
