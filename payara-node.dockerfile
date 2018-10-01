@@ -5,9 +5,13 @@ ENV PAYARA_PATH /opt/payara5
 RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 
-RUN useradd -b /opt -m -s /bin/bash -d ${PAYARA_PATH} payara && echo payara:payara | chpasswd
+RUN echo 'root:payara' |chpasswd
 
-# RUN mkdir /root/.ssh
+RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
+
+
+RUN mkdir /root/.ssh
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
