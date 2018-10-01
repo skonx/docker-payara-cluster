@@ -6,8 +6,8 @@ CONFIG="dg-config"
 DG="dg-comptandye"
 USER="root"
 
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE1 --sshuser $USER--install=true $NODE1
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE2 --sshuser $USER--install=true $NODE2
+/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE1 --sshuser $USER --install=true $NODE1
+/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE2 --sshuser $USER --install=true $NODE2
 
 /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE1 --config $CONFIG i1n1
 /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE1 --config $CONFIG i2n1
