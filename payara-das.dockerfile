@@ -45,9 +45,9 @@ EXPOSE 1-65000/udp 1-65000/tcp
 
 COPY ./config-cluster.sh /opt
 
-# USER root
+USER root
 RUN chmod +x /opt/config-cluster.sh
-# USER payara
+USER payara
 
 # Start the server in verbose mode
 ENTRYPOINT $AS_ADMIN start-domain -v $DOMAIN
