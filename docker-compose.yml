@@ -35,8 +35,8 @@ services:
     container_name: db-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_USER=admin_comptandye_20170328
+      - MYSQL_USER=admin_webapp
       - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=comptandye_master
+      - MYSQL_DATABASE=db_master
     volumes:
       - $HOME/mysql:/var/lib/mysql
