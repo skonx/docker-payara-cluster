@@ -3,8 +3,8 @@
 NODE1="payara-node1"
 NODE2="payara-node2"
 NODE3="payara-node3"
-CONFIG="dg-config"
-DG="dg-comptandye"
+#CONFIG="dg-config"
+DG="dg-webapp"
 USER="root"
 
 /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE1 --sshuser $USER --install=true $NODE1
