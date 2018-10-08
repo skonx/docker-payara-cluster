@@ -10,7 +10,7 @@ DG="dg-webapp"
 #default config
 CONFIG="dg-config"
 # default user
-USER="root"
+USER="payara"
 
 for i in `seq 1 $N`;
 do
