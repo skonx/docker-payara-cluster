@@ -1,26 +1,20 @@
 #!/bin/bash
 
-NODE1="payara-node1"
-NODE2="payara-node2"
-NODE3="payara-node3"
-#CONFIG="dg-config"
+# number of payara nodes
+# should be the same number as defined in the compose file
+N=3
+# node default name
+NODE="payara-node"
+# default payara deployment group
 DG="dg-webapp"
+# default user
 USER="root"
 
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE1 --sshuser $USER --install=true $NODE1
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE2 --sshuser $USER --install=true $NODE2
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE3 --sshuser $USER --install=true $NODE3
-
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE1 i1n1
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE1 i2n1
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE2 i1n2
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE2 i2n2
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE3 i1n3
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE3 i2n3
-
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile add-instance-to-deployment-group --instance i1n1 --deploymentgroup $DG
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile add-instance-to-deployment-group --instance i2n1 --deploymentgroup $DG
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile add-instance-to-deployment-group --instance i1n2 --deploymentgroup $DG
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile add-instance-to-deployment-group --instance i2n2 --deploymentgroup $DG
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile add-instance-to-deployment-group --instance i1n3 --deploymentgroup $DG
-/opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile add-instance-to-deployment-group --instance i2n3 --deploymentgroup $DG
+for i in `seq 1 $N`;
+do
+  /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-node-ssh --nodehost $NODE$i --sshuser $USER --install=true $NODE$i;
+  /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE$i i1n$i;
+  /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile create-instance --node $NODE$i i2n$i;
+  /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile add-instance-to-deployment-group --instance i1n$i --deploymentgroup $DG;
+  /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile add-instance-to-deployment-group --instance i2n$i --deploymentgroup $DG;
+done

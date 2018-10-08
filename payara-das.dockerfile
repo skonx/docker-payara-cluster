@@ -8,7 +8,7 @@ ENV ADMIN_USER admin
 ENV ADMIN_PASSWORD admin
 ENV NEW_ADMIN_PASSWORD payara
 ENV NODE_PASSWORD payara
-ENV WEBAPP comptandye
+ENV WEBAPP webapp
 
 # Reset the admin password
 RUN echo 'AS_ADMIN_PASSWORD='$ADMIN_PASSWORD'\n\
@@ -21,13 +21,10 @@ AS_ADMIN_SSHPASSWORD='$NODE_PASSWORD'\n\
 EOF\n'\
 > /opt/pwdfile
 
-# Setup the password, javamail, jdbc and the security realm
-# DB Server is db-mysql and not localhost (which is the url with a standalone docker mysql) !!!
 RUN $AS_ADMIN start-domain $DOMAIN && \
 $AS_ADMIN --user $ADMIN_USER --passwordfile=/opt/tmpfile change-admin-password && \
 $AS_ADMIN --user $ADMIN_USER --passwordfile=/opt/pwdfile enable-secure-admin && \
 $AS_ADMIN restart-domain $DOMAIN && \
-# Payara 5 only
 $AS_ADMIN create-deployment-group --passwordfile=/opt/pwdfile dg-$WEBAPP && \
 $AS_ADMIN set configs.config.server-config.admin-service.das-config.dynamic-reload-enabled=false --passwordfile=/opt/pwdfile && \
 # Disable Autodeploy
