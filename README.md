@@ -1,5 +1,8 @@
 # docker-payara-cluster
-Payara Cluster (Deployment Group) based on Docker instances
+:sparkles: Payara Cluster (Deployment Group) based on Docker instances :sparkles: :
+- 1 Payara DAS (Xmx/Xms 2GB)
+- 3 Payara Nodes (each hosting 2 Xmx/Xms 1GB instances)
+- 1 Mysql Server 5.7 (standalone, for the moment)
 
 ## Build and Start the cluster
 
