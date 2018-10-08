@@ -6,18 +6,21 @@ services:
     ports:
       - "10022:22"
       - "18080:28080"
+      - "18081:28081"
   payara-node2:
     image: payara-node
     container_name: payara-node2
     ports:
       - "20022:22"
       - "28080:28080"
+      - "28081:28081"
   payara-node3:
     image: payara-node
     container_name: payara-node3
     ports:
       - "30022:22"
       - "38080:28080"
+      - "38081:28081"
   payara-das:
     build:
       context: .
