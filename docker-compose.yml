@@ -43,7 +43,3 @@ services:
       - MYSQL_DATABASE=db_master
     volumes:
       - $HOME/mysql:/var/lib/mysql
-    networks:
-      private-lan:
-        aliases:
-          - db-mysql
