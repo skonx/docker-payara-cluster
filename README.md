@@ -8,6 +8,7 @@
   - based on the latest mysql:5.7 image
 
 ## Build and Start the cluster
+:exclamation: Remove `sudo` if you're not running **Docker** as root...
 
 ### Build the payara node image
 `sudo docker build -f payara-node.dockerfile -t payara-node .`
@@ -17,7 +18,7 @@
 `sudo docker-compose up -d`
 > remove `-d` option if you don't want to detach the DAS container and display the logs on INPUT
 
-### Create nodes/instances and Add them in the Deployment Group (dg-webapp)
+### Create nodes/instances and Add them into the Deployment Group (dg-webapp)
 `sudo docker exec -i payara-das /opt/config-cluster.sh`
 
 ### Copy and Deploy clusterjsp (Oracle's Sample Application)
