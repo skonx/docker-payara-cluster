@@ -42,7 +42,7 @@ $AS_ADMIN set-hazelcast-configuration --passwordfile=/opt/pwdfile --target $CONF
 $AS_ADMIN restart-domain $DOMAIN
 
 #EXPOSE 7000-8000
-EXPOSE 1-65000/udp 1-65000/tcp
+#EXPOSE 1-65000/udp 1-65000/tcp
 
 COPY ./config-cluster.sh /opt
 

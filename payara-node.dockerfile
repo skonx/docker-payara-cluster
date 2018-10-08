@@ -18,6 +18,6 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # EXPOSE 22 5000-6000 20000-30000
-EXPOSE 1-65000/udp 1-65000/tcp
+#EXPOSE 1-65000/udp 1-65000/tcp
 
 CMD    ["/usr/sbin/sshd", "-D"]
