@@ -7,6 +7,10 @@ services:
       - "10022:22"
       - "18080:28080"
       - "18081:28081"
+    networks:
+      private-lan:
+        aliases:
+          - payara-node1
   payara-node2:
     image: payara-node
     container_name: payara-node2
@@ -14,6 +18,10 @@ services:
       - "20022:22"
       - "28080:28080"
       - "28081:28081"
+    networks:
+      private-lan:
+        aliases:
+          - payara-node2
   payara-node3:
     image: payara-node
     container_name: payara-node3
@@ -21,6 +29,10 @@ services:
       - "30022:22"
       - "38080:28080"
       - "38081:28081"
+    networks:
+      private-lan:
+        aliases:
+          - payara-node3
   payara-das:
     build:
       context: .
@@ -33,6 +45,10 @@ services:
       - "payara-node2"
       - "payara-node3"
       - "db-mysql"
+    networks:
+      private-lan:
+        aliases:
+          - payara-das
   db-mysql:
     image: mysql:5.7
     container_name: db-mysql
@@ -43,3 +59,9 @@ services:
       - MYSQL_DATABASE=db_master
     volumes:
       - $HOME/mysql:/var/lib/mysql
+    networks:
+      private-lan:
+        aliases:
+          - db-mysql
+networks:
+  private-lan:
