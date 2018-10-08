@@ -9,8 +9,9 @@
 
 ## Build and Start the cluster
 
-### build the payara node image (based on openjdk docker image)
+### build the payara node image
 `sudo docker build -f payara-node.dockerfile -t payara-node .`
+> payara-node image will be used in the compose file
 
 ### compose the Payara DAS, the 3 Payara nodes + 1 MySQL Server
 `sudo docker-compose up -d`
