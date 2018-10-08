@@ -9,4 +9,4 @@ Payara Cluster (Deployment Group) based on Docker instances
 ### create nodes/instances and add them in the deployment group (dg-comptandye)
 `docker exec -i payara-das /opt/config-cluster.sh`
 ### start the deployment group
-`docker exec -i payara-das /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile start-deployment-group dg-comptandye`
+`docker exec -i payara-das /opt/payara5/bin/asadmin --passwordfile=/opt/pwdfile start-deployment-group dg-webapp`
