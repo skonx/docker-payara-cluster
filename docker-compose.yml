@@ -32,4 +32,3 @@ services:
       - "payara-node1"
       - "payara-node2"
       - "payara-node3"
-      - "db-mysql"
