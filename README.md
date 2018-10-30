@@ -4,8 +4,6 @@
   - based on the latest payara/server-full image
 - **3 Payara Nodes (each hosting 2 Xmx/Xms 1GB instances)**
   - based on the latest openjdk:8-jdk image
-- **1 Mysql Server (standalone, for the moment)**
-  - based on the latest mysql:5.7 image
 
 ## Build and Start the cluster
 :exclamation: Remove `sudo` if you're not running **Docker** as root...
