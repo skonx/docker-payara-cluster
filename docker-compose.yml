@@ -42,4 +42,4 @@ services:
       - MYSQL_PASSWORD=password
       - MYSQL_DATABASE=db_master
     volumes:
-      - $HOME/mysql:/var/lib/mysql
+      - $HOME/mysql-cluster:/var/lib/mysql
