@@ -24,7 +24,7 @@ EOF\n'\
 
 RUN $AS_ADMIN start-domain $DOMAIN && \
 $AS_ADMIN --user $ADMIN_USER --passwordfile=/opt/tmpfile change-admin-password && \
-$AS_ADMIN --user $ADMIN_USER --passwordfile=/opt/pwdfile enable-secure-admin && \
+#$AS_ADMIN --user $ADMIN_USER --passwordfile=/opt/pwdfile enable-secure-admin && \
 $AS_ADMIN restart-domain $DOMAIN && \
 $AS_ADMIN create-deployment-group --passwordfile=/opt/pwdfile dg-$WEBAPP && \
 $AS_ADMIN copy-config --passwordfile=/opt/pwdfile default-config $CONFIG && \
