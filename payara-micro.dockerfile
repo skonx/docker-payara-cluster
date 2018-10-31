@@ -1,9 +1,10 @@
 FROM openjdk:8-jdk-alpine
 
 ENV PAYARA_PATH /opt/payara
+ENV INSTANCE_NAME micro1
 
-RUN   apk update \                                                                                                                                                                                                                        
- &&   apk add ca-certificates wget \                                                                                                                                                                                                      
+RUN   apk update \
+ &&   apk add ca-certificates wget \
  &&   update-ca-certificates && \
  mkdir -p $PAYARA_PATH/deployments && \
  adduser -D -h $PAYARA_PATH payara && echo payara:payara | chpasswd && \
@@ -25,5 +26,5 @@ EXPOSE 4848 8009 8080 8181
 USER payara
 WORKDIR $PAYARA_PATH
 
-ENTRYPOINT ["java", "-DjvmRoute=${com.sun.aas.instanceName}","-jar", "/opt/payara/payara-micro.jar"]
+ENTRYPOINT ["java", "-DjvmRoute=${INSTANCE_NAME}", "-jar", "/opt/payara/payara-micro.jar"]
 CMD ["--deploymentDir", "/opt/payara/deployments"]
