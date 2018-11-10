@@ -1,0 +1,14 @@
+version: '3'
+services:
+  payara1:
+    image: trendev/payara
+    container_name: payara1
+    ports:
+      - "14848:4848"
+      - "18080:8080"
+  payara2:
+    image: trendev/payara
+    container_name: payara2
+    ports:
+      - "24848:4848"
+      - "28080:8080"
