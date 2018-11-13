@@ -1,6 +1,0 @@
-FROM payara/micro
-
-MAINTAINER TRENDev trendevfr@gmail.com
-
-COPY ./event-receiver-1.0-SNAPSHOT.war $DEPLOY_DIR
-COPY ./event-sender-1.0-SNAPSHOT.war $DEPLOY_DIR
