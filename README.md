@@ -5,6 +5,8 @@
 - **3 Payara Nodes (each hosting 2 Xmx/Xms 1GB instances)**
   - based on the latest openjdk:8-jdk image
 
+A deployment grid is not necessary? Have a look on our [datagrid example](https://github.com/trendev/payara-datagrid) instead...
+
 ## Build and Start the cluster
 :exclamation: Remove `sudo` if you're not running **Docker** as root...
 
